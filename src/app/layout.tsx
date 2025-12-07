@@ -1,16 +1,26 @@
 import { NavBarItem } from "@/components/navbar/navbar";
 import "./globals.css";
+import { ThemeProvider } from "@/components/darkmode/theme-provider";
+import { ModeToggle } from "@/components/darkmode/darkmodebutton";
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <NavBarItem />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ModeToggle />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
