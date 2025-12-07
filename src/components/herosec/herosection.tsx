@@ -9,8 +9,9 @@ export default function HeroSection() {
 
       <div className="space-y-6 pointer-events-none z-10 text-center absolute">
         <h1 className="whitespace-pre-wrap">
-          {/* Custom font for name */}
-          <NameAnimation />
+          <span className="block text-5xl font-semibold mt-2 pb-[10px] text-primary ">
+            <NameAnimation />
+          </span>
 
           {/* Morphing text */}
           <span className="block text-5xl font-semibold mt-2 text-primary">
@@ -24,7 +25,6 @@ export default function HeroSection() {
           Tailwind, ShadCN, Node.js, and PostgreSQL—crafting seamless UIs and
           robust backends.
         </p>
-
         <p className="text-xs text-primary/50 mt-1">Belagavi, India</p>
       </div>
     </div>

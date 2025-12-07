@@ -21,11 +21,47 @@ export function NavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name);
   const [, setIsMobile] = useState(false);
 
+  // -----------------------------
+  // ⭐ SCROLL-SPY EFFECT
+  // -----------------------------
+  useEffect(() => {
+    const sectionElements = items.map((item) =>
+      document.querySelector(item.url)
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            const matchedItem = items.find(
+              (item) => item.url.replace("#", "") === id
+            );
+            if (matchedItem) setActiveTab(matchedItem.name);
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    sectionElements.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sectionElements.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, [items]);
+
+  // -----------------------------
+  // MOBILE RESPONSIVE
+  // -----------------------------
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -58,6 +94,7 @@ export function NavBar({ items, className }: NavBarProps) {
               <span className="md:hidden">
                 <Icon size={18} strokeWidth={2.5} />
               </span>
+
               {isActive && (
                 <motion.div
                   layoutId="lamp"

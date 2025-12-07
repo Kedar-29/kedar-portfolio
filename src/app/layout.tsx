@@ -10,15 +10,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="relative">
         <NavBarItem />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <ModeToggle />
+          {/* Top-right fixed button */}
+          <div className="absolute top-8 right-5 z-50">
+            <ModeToggle />
+          </div>
+
           {children}
         </ThemeProvider>
       </body>
