@@ -46,7 +46,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="w-full py-28 px-8 flex flex-col items-center relative overflow-hidden bg-background">
+    <section className="w-full py-28 pb-28 px-8 flex flex-col items-center relative overflow-hidden bg-background">
       {/* 
         NEW: Enhanced Background Glow/Animation
         A subtle, moving gradient to add depth and animation to the section background. 
@@ -120,15 +120,15 @@ export default function AboutSection() {
           {skills.map((skill) => (
             <div
               key={skill.id}
-              className="flex flex-col items-center mx-6 transition-transform duration-500 hover:scale-[1.15] cursor-pointer group" // More aggressive hover scale
+              className="flex flex-col items-center mx-6 transition-transform duration-500 hover:scale-[1.15] cursor-pointer group"
             >
               <div
                 className="
-                  text-5xl p-5 rounded-2xl bg-card/50 backdrop-blur-sm
-                  border border-white/10 shadow-lg 
-                  group-hover:shadow-primary/50 group-hover:bg-primary/20
-                  group-hover:text-primary transition-all duration-300 ease-in-out
-                " // Enhanced hover style
+            text-5xl p-5 rounded-2xl bg-card/50 backdrop-blur-sm
+            border border-white/10 shadow-lg 
+            group-hover:shadow-primary/50 group-hover:bg-primary/20
+            group-hover:text-primary transition-all duration-300 ease-in-out
+          "
               >
                 {skill.icon}
               </div>
