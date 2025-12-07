@@ -1,5 +1,6 @@
 import { GLSLHills } from "@/components/ui/glsl-hills";
 import { MorphingTextlive } from "./morphintext";
+import { NameAnimation } from "./name";
 
 export default function HeroSection() {
   return (
@@ -9,9 +10,7 @@ export default function HeroSection() {
       <div className="space-y-6 pointer-events-none z-10 text-center absolute">
         <h1 className="whitespace-pre-wrap">
           {/* Custom font for name */}
-          <span className="block text-6xl font-extrabold font-serif mb-2">
-            Kedar Mhetre
-          </span>
+          <NameAnimation />
 
           {/* Morphing text */}
           <span className="block text-5xl font-semibold mt-2 text-primary">
