@@ -7,9 +7,9 @@ export function NavBarItem() {
   const navItems = [
     { name: "Home", url: "#home", icon: Home },
     { name: "About", url: "#about", icon: User },
-    { name: "Projects", url: "#projects", icon: Briefcase },
-    { name: "Skills", url: "#skills", icon: Code2 },
-    { name: "Certificates", url: "#certificates", icon: Award },
+    { name: "Experiance", url: "#experiance", icon: Briefcase },
+    { name: "Projects", url: "#projects", icon: Code2 },
+    { name: "Contact", url: "#contact", icon: Award },
   ];
 
   return <NavBar items={navItems} />;
