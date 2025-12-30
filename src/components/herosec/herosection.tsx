@@ -21,10 +21,11 @@ export default function HeroSection() {
 
         {/* Description under morphing text */}
         <p className="text-sm text-primary/60 max-w-xl mx-auto mt-4">
-          Full-Stack Engineer building scalable web apps with React, Next.js,
-          Tailwind, ShadCN, Node.js, and PostgreSQL—crafting seamless UIs and
-          robust backends.
+          Full-Stack Engineer specializing in modern, scalable web applications
+          with React, Next.js, NestJS, MySQL, Prisma ORM, and
+          Tailwind—delivering clean UI/UX and high-performance backend systems.
         </p>
+
         <p className="text-xs text-primary/50 mt-1">Belagavi, India</p>
       </div>
     </div>

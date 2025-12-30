@@ -7,7 +7,7 @@ export function NavBarItem() {
   const navItems = [
     { name: "Home", url: "#home", icon: Home },
     { name: "About", url: "#about", icon: User },
-    { name: "Experiance", url: "#experiance", icon: Briefcase },
+    { name: "Experience", url: "#experience", icon: Briefcase },
     { name: "Projects", url: "#projects", icon: Code2 },
     { name: "Contact", url: "#contact", icon: Award },
   ];

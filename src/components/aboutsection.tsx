@@ -92,7 +92,7 @@ export default function AboutSection() {
             <div className="absolute inset-0 rounded-3xl blur-xl bg-primary/10 animate-pulse-slow"></div>
 
             <Image
-              src="/kedar.jpg"
+              src="/kedaronecopy.png"
               width={300}
               height={500}
               alt="Kedar"
@@ -108,7 +108,7 @@ export default function AboutSection() {
 
       {/* My Tech Stack Title (Smoother animation) */}
       <h3
-        className="mt-20 mb-6 text-3xl font-bold text-center animate-fadeInUp"
+        className="mt-20 mb-6 text-3xl font-bold  animate-fadeInUp"
         style={{ animationDelay: "0.6s" }}
       >
         My Tech Stack

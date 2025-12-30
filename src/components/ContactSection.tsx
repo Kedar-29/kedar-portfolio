@@ -9,44 +9,44 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full pt-28 pb-0 px-6 md:px-10 lg:px-16 overflow-hidden bg-background"
+      className="relative w-full pt-16 pb-4 px-6 md:px-10 lg:px-16 overflow-hidden bg-background"
     >
       {/* Animated BG */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[400px] h-[400px] bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-400 rounded-full filter blur-3xl opacity-50 animate-blob top-[-100px] left-[-100px]"></div>
-        <div className="absolute w-[300px] h-[300px] bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400 rounded-full filter blur-2xl opacity-40 animate-blob animation-delay-2000 top-[50%] left-[60%]"></div>
-        <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-pink-400 via-red-400 to-orange-400 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-4000 bottom-[-150px] right-[-150px]"></div>
+        <div className="absolute w-[350px] h-[350px] bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-400 rounded-full filter blur-3xl opacity-50 animate-blob top-[-120px] left-[-120px]" />
+        <div className="absolute w-[260px] h-[260px] bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400 rounded-full filter blur-2xl opacity-40 animate-blob animation-delay-2000 top-[55%] left-[65%]" />
+        <div className="absolute w-[420px] h-[420px] bg-gradient-to-r from-pink-400 via-red-400 to-orange-400 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-4000 bottom-[-180px] right-[-180px]" />
       </div>
 
       {/* SECTION TITLE */}
-      <div className="text-center mb-20 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+      <div className="text-center mb-12 relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
           Get In Touch
         </h2>
-        <p className="text-muted-foreground mt-3 text-lg">
+        <p className="text-muted-foreground mt-2 text-base md:text-lg">
           Feel free to reach out anytime.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-6xl mx-auto relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto relative z-10">
         {/* LEFT SIDE */}
-        <div className="space-y-6">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+        <div className="space-y-4">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
             Let’s work together
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-md">
+          <p className="text-base text-muted-foreground max-w-md">
             I&apos;m available for full-time roles & freelance projects.
           </p>
 
-          <p className="text-muted-foreground max-w-md leading-relaxed">
+          <p className="text-muted-foreground max-w-md leading-relaxed text-sm md:text-base">
             My inbox is always open — whether you have a question, want to
             collaborate, or just want to say hi.
           </p>
 
           <a
             href="mailto:kedarmhetre29@gmail.com"
-            className="inline-block text-primary text-lg font-semibold underline hover:text-primary/80 transition"
+            className="inline-block text-primary text-base md:text-lg font-semibold underline hover:text-primary/80 transition"
           >
             kedarmhetre29@gmail.com
           </a>
@@ -54,36 +54,36 @@ export default function ContactSection() {
 
         {/* RIGHT SIDE FORM */}
         <form
-          className="space-y-6 p-6 rounded-2xl bg-background/50 backdrop-blur border border-border/40 shadow-[0_0_25px_-5px_rgba(0,0,0,0.15)]"
+          className="space-y-4 p-4 rounded-2xl bg-background/50 backdrop-blur border border-border/40 shadow-[0_0_25px_-5px_rgba(0,0,0,0.15)]"
           onSubmit={(e) => e.preventDefault()}
         >
           {/* Name */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="text-sm font-medium">Name</label>
             <Input
               placeholder="Your Name"
               required
-              className="h-12 rounded-xl border-border bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
+              className="h-10 rounded-xl border-border bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
             />
           </div>
 
           {/* Email */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="text-sm font-medium">Email</label>
             <Input
               type="email"
               placeholder="hello@gmail.com"
               required
-              className="h-12 rounded-xl border-border bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
+              className="h-10 rounded-xl border-border bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
             />
           </div>
 
           {/* Message */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="text-sm font-medium">Message</label>
             <Textarea
               placeholder="Hello! What's up?"
-              className="min-h-[140px] rounded-xl border-border bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
+              className="min-h-[110px] rounded-xl border-border bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
               required
             />
           </div>
@@ -91,7 +91,7 @@ export default function ContactSection() {
           {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full h-12 text-lg rounded-xl font-semibold transition-all hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+            className="w-full h-10 text-base rounded-xl font-semibold transition-all hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]"
           >
             Send Message
           </Button>
@@ -105,17 +105,17 @@ export default function ContactSection() {
             transform: translate(0px, 0px) scale(1);
           }
           33% {
-            transform: translate(30px, -50px) scale(1.1);
+            transform: translate(25px, -40px) scale(1.08);
           }
           66% {
-            transform: translate(-20px, 20px) scale(0.9);
+            transform: translate(-15px, 15px) scale(0.92);
           }
           100% {
             transform: translate(0px, 0px) scale(1);
           }
         }
         .animate-blob {
-          animation: blob 8s infinite;
+          animation: blob 7s infinite;
         }
         .animation-delay-2000 {
           animation-delay: 2s;
