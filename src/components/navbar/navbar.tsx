@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, User, Briefcase, Award, Code2 } from "lucide-react";
+import { Home, User, Briefcase, Code2, Award } from "lucide-react";
 import { NavBar } from "@/components/navbar/tubelight-navbar";
 
 export function NavBarItem() {
