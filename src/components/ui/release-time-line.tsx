@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   GraduationCap,
   Briefcase,
-  Code2,
   FolderGit2,
   ArrowUpRight,
 } from "lucide-react";

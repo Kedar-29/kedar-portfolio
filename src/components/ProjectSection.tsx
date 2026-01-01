@@ -18,9 +18,7 @@ export default function AgencyDarkHorizontal() {
     restDelta: 0.001,
   });
 
-  // ⬇️ Reduced overshoot so LAST card fully enters viewport
   const x = useTransform(smoothProgress, [0, 1], ["0%", "-65%"]);
-
   const titleOpacity = useTransform(smoothProgress, [0, 0.1], [1, 0]);
   const titleY = useTransform(smoothProgress, [0, 0.1], [0, -50]);
 
@@ -29,36 +27,59 @@ export default function AgencyDarkHorizontal() {
       title: "OneInbox",
       type: "01",
       img: "/projects/oneinbox.png",
-      category: "Product & Platforms",
-      desc: "We design, develop, and optimize brand and commerce websites.",
+      category: "Open Source Development",
+      desc: `soon`,
+      skills: ["Next.js", "TypeScript", "Prisma", "Open Source"],
+      github: "#",
+      demoUrl: "#",
+      demoLabel: "Live demo",
     },
     {
       title: "TechAds",
       type: "02",
-      img: "/projects/techads.png",
-      category: "Data & AI",
-      desc: "Turning data into an advantage as a strategic ingredient.",
+      img: "/techads/cover.png",
+      category: "Next.js Application",
+      desc: `A centralized digital advertising platform for managing, scheduling, and monitoring campaigns across multiple devices with role-based access and real-time insights.`,
+      skills: ["Next.js", "Prisma", "JWT", "Leaflet", "ShadCN UI"],
+      github: "https://github.com/Kedar-29/tech-ads.git",
+      demoUrl: "#",
+      demoLabel: "Live demo",
     },
     {
-      title: "Tact-Panther",
+      title: "FlowDesk",
       type: "03",
-      img: "/projects/tactpanther.png",
-      category: "Marketing & Content",
-      desc: "Creating seamless stories and journeys that drive loyalty.",
+      img: "/flow/cover.png",
+      category: "Full Stack Development",
+      desc: `A full-stack customer and project management system with secure data handling and role-based access. Designed for scalable, real-world business workflows.`,
+
+      skills: ["Next.js", "PostgreSQL", "Prisma", "SaaS"],
+      github: "https://github.com/Kedar-29/FlowDesk.git",
+      demoUrl: "#contact",
+      demoLabel: "Contact for demo",
     },
     {
-      title: "ReviewHub",
+      title: "Security agency management",
       type: "04",
-      img: "/projects/reviewhub.png",
-      category: "Brand Strategy",
-      desc: "Differentiated identities defined by a brand's vision.",
+      img: "/security_service/cover.png",
+      category: "MERN Stack Application",
+      desc: `A centralized system designed to manage security services, workforce operations, and client requests efficiently using role-based access and structured workflows.`,
+      skills: ["MongoDB", "Express", "React", "Node.js"],
+      github:
+        "https://github.com/Kedar-29/security-agency-management-system.git",
+      demoUrl: "#contact",
+      demoLabel: "Contact for demo",
     },
     {
       title: "WeCare",
       type: "05",
-      img: "/projects/wecare.png",
-      category: "Customer Experience",
-      desc: "Exceptional experiences for businesses and customers.",
+      img: "/wecare/cover.png",
+      category: "Web Application",
+      desc: `A web-based hospital management system has secure, role-based access to appointments, patient records, medical history, improving efficiency and coordination across hospital staff and patients.`,
+      skills: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+      github:
+        "https://github.com/Kedar-29/WeCare-Hospital-Management-System.git",
+      demoUrl: "#contact",
+      demoLabel: "Contact for demo",
     },
   ];
 
@@ -98,18 +119,23 @@ export default function AgencyDarkHorizontal() {
               key={index}
               className="group relative flex flex-col flex-shrink-0 w-[75vw] md:w-[42vw]"
             >
-              {/* Category */}
-              <div className="flex justify-between items-end mb-6 pb-4 border-b border-neutral-200 dark:border-white/10">
-                <h3 className="text-2xl md:text-4xl font-medium tracking-tight flex items-baseline gap-4 text-neutral-900 dark:text-white">
-                  {p.category}
+              {/* Title */}
+              <div className="mb-3 pb-1">
+                <div className="flex items-baseline gap-4 mb-2">
+                  <h3 className="text-2xl md:text-4xl font-medium tracking-tight text-neutral-900 dark:text-white">
+                    {p.title}
+                  </h3>
                   <span className="text-xl font-mono text-neutral-400 dark:text-neutral-600">
                     {p.type}
                   </span>
-                </h3>
+                </div>
+                <p className="text-base md:text-lg font-light text-neutral-600 dark:text-neutral-500">
+                  {p.category}
+                </p>
               </div>
 
               {/* Image */}
-              <div className="relative aspect-[15/10] w-full overflow-hidden rounded-sm bg-neutral-100 dark:bg-neutral-900">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm bg-neutral-100 dark:bg-neutral-900">
                 <Image
                   src={p.img}
                   alt={p.title}
@@ -117,42 +143,71 @@ export default function AgencyDarkHorizontal() {
                   className="object-cover opacity-90 dark:opacity-80 transition-all duration-[1.5s] ease-[cubic-bezier(0.2,1,0.3,1)] group-hover:scale-105 group-hover:opacity-100"
                 />
 
-                {/* Explore */}
-                <div className="absolute bottom-6 left-6">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    className="px-5 py-3 md:px-8 md:py-4 rounded-sm flex items-center gap-4 text-xs md:text-sm font-bold uppercase tracking-widest bg-black text-white dark:bg-white dark:text-black"
-                  >
-                    Explore
-                    <span className="border p-1 border-white/20 dark:border-black/20">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M3.64645 11.3536L11.3536 3.64645M11.3536 3.64645H3.5M11.3536 3.64645V11.5"
-                          stroke="currentColor"
-                          strokeWidth="1.6"
-                        />
-                      </svg>
+                {/* Bottom gradient for tag readability */}
+                <div
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-28 md:h-32
+                    bg-gradient-to-t from-black/80 via-black/40 to-transparent
+                    dark:from-black/90 dark:via-black/60 dark:to-transparent
+                  "
+                />
+
+                {/* Skills tags overlay */}
+                <div className="absolute bottom-6 left-6 flex flex-wrap gap-3 z-20">
+                  {p.skills.map((skill, i) => (
+                    <span
+                      key={i}
+                      className="
+                        px-4 py-2 text-xs md:text-sm rounded-full
+                        border border-white/40 dark:border-white/40
+                        bg-white/10 dark:bg-white/10
+                        text-white
+                        uppercase tracking-wider
+                        backdrop-blur-sm
+                      "
+                    >
+                      {skill}
                     </span>
-                  </motion.button>
+                  ))}
                 </div>
               </div>
 
-              {/* Description */}
-              <div className="mt-8 max-w-xl">
-                <p className="text-base md:text-lg leading-relaxed font-light text-neutral-700 dark:text-neutral-400">
+              {/* Description + Skills */}
+              <div className="mt-8 w-full">
+                <p className="whitespace-pre-line text-base md:text-lg leading-relaxed font-light text-neutral-700 dark:text-neutral-400">
                   {p.desc}
                 </p>
+
+                {/* Links */}
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-5 py-2.5 rounded-full border border-neutral-800/80 dark:border-white/40 text-xs md:text-sm font-medium tracking-wide text-neutral-900 dark:text-white bg-white/80 dark:bg-transparent hover:bg-neutral-100 dark:hover:bg-white/10 transition-colors"
+                    >
+                      GitHub
+                    </a>
+                  )}
+
+                  {p.demoUrl && p.demoLabel && (
+                    <a
+                      href={p.demoUrl}
+                      target={p.demoUrl.startsWith("http") ? "_blank" : "_self"}
+                      rel={
+                        p.demoUrl.startsWith("http") ? "noreferrer" : undefined
+                      }
+                      className="px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold tracking-wide bg-neutral-900 text-white dark:bg-white dark:text-black hover:bg-black dark:hover:bg-neutral-200 transition-colors"
+                    >
+                      {p.demoLabel}
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
 
-          {/* ✅ END SPACER — allows LAST project to fully settle */}
+          {/* END SPACER */}
           <div className="w-[55vw] flex-shrink-0" />
         </motion.div>
       </div>
