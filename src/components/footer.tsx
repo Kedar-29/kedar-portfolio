@@ -25,10 +25,11 @@ function Footersectiom() {
           },
         ]}
         mainLinks={[
-          { href: "#About", label: "About" },
-          { href: "/about", label: "Experience" },
-          { href: "/blog", label: "Projects" },
-          { href: "/contact", label: "Contact" },
+          { href: "#home", label: "Home" },
+          { href: "#about", label: "About" },
+          { href: "#experience", label: "Experience" },
+          { href: "#projects", label: "Projects" },
+          { href: "#contact", label: "Contact" },
         ]}
         legalLinks={[
           { href: "/privacy", label: "Privacy" },
