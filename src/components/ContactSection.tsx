@@ -1,16 +1,48 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactSection() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("submitting");
+    setError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to send message.");
+      }
+
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  }
+
   return (
     <section
       id="contact"
-      className="relative w-full pt-16 pb-4 px-6 md:px-10 lg:px-16 overflow-hidden bg-background"
+      className="relative w-full pt-16 pb-4 px-6 md:px-10 lg:px-16 overflow-hidden bg-background dark:bg-[#050505]"
     >
       {/* ================= Animated Background ================= */}
       <div className="absolute inset-0 -z-10">
@@ -80,7 +112,7 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             className="space-y-4 p-4 rounded-2xl bg-background/50 backdrop-blur border border-border/40 shadow-[0_0_25px_-5px_rgba(0,0,0,0.15)]"
           >
             <div className="space-y-1">
@@ -88,6 +120,10 @@ export default function ContactSection() {
               <Input
                 placeholder="Your Name"
                 required
+                value={form.name}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, name: e.target.value }))
+                }
                 className="h-10 rounded-xl bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
               />
             </div>
@@ -98,6 +134,10 @@ export default function ContactSection() {
                 type="email"
                 placeholder="hello@gmail.com"
                 required
+                value={form.email}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, email: e.target.value }))
+                }
                 className="h-10 rounded-xl bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
               />
             </div>
@@ -107,16 +147,30 @@ export default function ContactSection() {
               <Textarea
                 placeholder="Hello! What's up?"
                 required
+                value={form.message}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, message: e.target.value }))
+                }
                 className="min-h-[110px] rounded-xl bg-background/60 focus-visible:ring-2 focus-visible:ring-primary/50"
               />
             </div>
 
             <Button
               type="submit"
+              disabled={status === "submitting"}
               className="w-full h-10 text-base rounded-xl font-semibold transition-all hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]"
             >
-              Send Message
+              {status === "submitting" ? "Sending..." : "Send Message"}
             </Button>
+
+            {status === "success" && (
+              <p className="text-sm text-emerald-500">
+                Message sent successfully!
+              </p>
+            )}
+            {status === "error" && error && (
+              <p className="text-sm text-red-500">{error}</p>
+            )}
           </motion.form>
         </div>
       </motion.div>

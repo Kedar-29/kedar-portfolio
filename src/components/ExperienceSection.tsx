@@ -9,7 +9,8 @@ const experiences = [
     company: "Playtech, Belagavi",
     duration: "01",
     time: "1 Year · Full-Time",
-    status: "Current",
+    // status: "Current",
+    status: "Completed",
     desc: `
 • Developed end-to-end modules using Next.js, NestJS, and MySQL.
 • Built reusable UI components and REST API integrations (+25% dev speed).

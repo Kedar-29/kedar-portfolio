@@ -3,7 +3,7 @@ import { Footer } from "@/components/ui/footer";
 
 function Footersectiom() {
   return (
-    <div className="w-full">
+    <div className="w-full dark:bg-[#050505]">
       <Footer
         logo={<Hexagon className="h-10 w-10" />}
         brandName="Kedar Mhetre"
